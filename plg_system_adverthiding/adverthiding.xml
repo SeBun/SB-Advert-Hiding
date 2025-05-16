@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.10" type="plugin" group="system" method="upgrade">
+    <name>Advert Hiding</name>
+    <author>Sergey Bunin</author>
+    <creationDate>2025-05-05</creationDate>
+    <copyright>Copyright (C) 2025 Sergey Bunin. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <authorEmail>sebun@mail.ru</authorEmail>
+    <authorUrl>https://sebun.ru</authorUrl>
+    <version>1.1.0</version>
+    <description>Плагин для автоматического изменения прав доступа к рекламным материалам после истечения срока публикации. Работает с материалами, имеющими пользовательские поля advertising (рекламный материал) и hiding (дата скрытия).</description>
+
+    <files>
+        <filename plugin="adverthiding">adverthiding.php</filename>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic" label="Основные параметры">
+                <field
+                    name="check_interval"
+                    type="text"
+                    default="3600"
+                    label="Интервал проверки (в секундах)"
+                    description="Частота выполнения проверки (например: 3600 = 1 час, 10800 = 3 часа)"
+                    size="10"
+                />
+                <field
+                    name="batch_size"
+                    type="text"
+                    default="100"
+                    label="Количество материалов за раз"
+                    description="Максимальное количество статей, обрабатываемых за один запуск"
+                    size="5"
+                />
+                <field
+                    name="categories"
+                    type="category"
+                    extension="com_content"
+                    multiple="true"
+                    label="Категории для применения"
+                    description="Выберите категории, где плагин будет работать. Если не выбрано — для всех."
+                    class="inputbox"
+                    size="5"
+                />
+				<!-- Поля для групп -->
+				<field
+					name="public_group"
+					type="usergrouplist"
+					default="1"
+					label="Группа для публичного доступа"
+					description="Выберите группу, соответствующую уровню Public"
+				/>
+				<field
+					name="registered_group"
+					type="usergrouplist"
+					default="2"
+					label="Группа для приватного доступа"
+					description="Выберите группу, соответствующую уровню Registered"
+				/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
