@@ -7,7 +7,7 @@
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>sebun@mail.ru</authorEmail>
     <authorUrl>https://sebun.ru</authorUrl>
-    <version>1.1.0</version>
+    <version>1.2.1</version>
     <description>Плагин для автоматического изменения прав доступа к рекламным материалам после истечения срока публикации. Работает с материалами, имеющими пользовательские поля advertising (рекламный материал) и hiding (дата скрытия).</description>
 
     <files>
@@ -57,6 +57,20 @@
 					default="2"
 					label="Группа для приватного доступа"
 					description="Выберите группу, соответствующую уровню Registered"
+				/>
+				<!-- Область выполнения -->
+				<field
+					name="admin_only"
+					type="checkbox"
+					label="Работать только в админке"
+					description="Если включено, плагин будет выполняться только в административной панели."
+					default="0"
+				/>
+				<!-- Скрытое поле для хранения последнего времени запуска плагина -->
+				<field
+					name="last_check"
+					type="hidden"
+					default=""
 				/>
             </fieldset>
         </fields>
